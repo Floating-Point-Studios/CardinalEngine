@@ -9,7 +9,7 @@ return {
     IgnoreSubmodules = true,
 
     -- Adds Deus table to global shared table accessible by shared.Deus()
-    AttachToShared = false,
+    AttachToShared = true,
 
     -- Creates a module in ReplicatedStorage that can be used by any script
     PubliclyAccessibleLoader = false,
