@@ -15,6 +15,10 @@
 
         "DeusFramework": {
           "$path": "src/deus-framework/src"
+        },
+
+        "DeusSettings": {
+          "$path": "src/DeusSettings.lua"
         }
 
       }
