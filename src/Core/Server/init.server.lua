@@ -17,8 +17,8 @@ CardinalClient.Parent = ReplicatedFirst
 Deus:Register(script, "Cardinal")
 Deus:Register(CardinalShared, "Cardinal")
 
+shared.Cardinal = Deus:Load("Cardinal.CardinalLoader").new().Proxy
 shared.Deus = nil
-shared.Cardinal = Deus:Load("Cardinal.CardinalLoader").new()
 
 -- Sort Modules
 

@@ -16,17 +16,17 @@ return BaseObject.new(
 
         Methods = {
 
-            Register = function(module, moduleName)
+            Register = function(self, internalAccess, module, moduleName)
                 moduleName = moduleName or module.Name
                 Output.assert(not table.find(ReservedNames, moduleName), "Name '%s' is reserved and cannot be used to register a module", moduleName)
                 Deus:Register(module, moduleName)
             end,
 
-            Load = function(modulePath)
+            Load = function(self, internalAccess, modulePath)
                 return Deus:Load(modulePath)
             end,
 
-            IsRegistered = function(modulePath)
+            IsRegistered = function(self, internalAccess, modulePath)
                 return Deus:IsRegistered(modulePath)
             end
 
