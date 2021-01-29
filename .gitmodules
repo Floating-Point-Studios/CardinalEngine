@@ -1,4 +1,4 @@
-[submodule "src/DeusFramework"]
-	path = src/DeusFramework
+[submodule "src/deus-framework"]
+	path = src/deus-framework
 	url = https://github.com/Floating-Point-Studios/deus-framework
 	branch = rewrite
