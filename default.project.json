@@ -14,7 +14,7 @@
         },
 
         "DeusFramework": {
-          "$path": "src/deus-framework/src"
+          "$path": "src/DeusFramework/src"
         },
 
         "DeusSettings": {
