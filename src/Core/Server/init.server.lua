@@ -18,7 +18,7 @@ Deus:Register(script, "Cardinal")
 Deus:Register(CardinalShared, "Cardinal")
 
 shared.Cardinal = Deus:Load("Cardinal.CardinalLoader").new().Proxy
-shared.Deus = nil
+-- shared.Deus = nil
 
 -- Sort Modules
 
@@ -56,7 +56,7 @@ local function SortModules(modules)
     end
 end
 
-local Modules = ServerStorage:WaitForChild("CardinalModules")
+local Modules = ServerStorage:FindFirstChild("CardinalModules")
 if Modules then
     SortModules(Modules:GetChildren())
 end
