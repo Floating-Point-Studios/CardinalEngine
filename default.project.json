@@ -22,6 +22,14 @@
         }
 
       }
+    },
+
+    "ServerStorage": {
+      "$className": "ServerStorage",
+
+      "CardinalModules": {
+        "$path": "src/BuiltInModules"
+      }
     }
 
   }

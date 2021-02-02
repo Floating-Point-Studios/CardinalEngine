@@ -1,4 +1,4 @@
-local ReplicatedFirst = game:GetService("ReplicatedScriptService")
+local ReplicatedFirst = game:GetService("ReplicatedFirst")
 local ServerScriptService = game:GetService("ServerScriptService")
 local ServerStorage = game:GetService("ServerStorage")
 
@@ -7,6 +7,8 @@ local ServerStorage = game:GetService("ServerStorage")
 repeat wait() until shared.Deus
 local Deus = shared.Deus()
 local CardinalCore = script.Parent
+
+local StringUtils = Deus:Load("Deus.StringUtils")
 
 local CardinalClient = CardinalCore.Client
 local CardinalShared = CardinalCore.Shared
@@ -33,13 +35,44 @@ local function SortModules(modules)
 
         if module:IsA("Folder") then
 
-            if module.Name:lower() == "server" then
-                module:Clone().Parent = ServerModules
-            elseif module.Name:lower() == "client" then
+            local moduleName = module.Name
+            if moduleName:lower() == "server" then
+
+                module = module:Clone()
+                module.Name = module.Parent.Name
+                module.Parent = ServerModules
+
+            elseif moduleName:lower() == "client" then
+
+                module = module:Clone()
+                module.Name = module.Parent.Name
+                module.Parent = ClientModules
+
+            elseif moduleName:lower() == "shared" then
+
+                module = module:Clone()
+                module.Name = module.Parent.Name
+                module.Parent = ServerModules
                 module:Clone().Parent = ClientModules
-            elseif module.Name:lower() == "shared" then
-                module:Clone().Parent = ServerModules
-                module:Clone().Parent = ClientModules
+
+            elseif StringUtils.reverseSub(moduleName, 1, 7):lower() == ".server" then
+
+                module = module:Clone()
+                module.Name = StringUtils.reverseSub(moduleName, 8)
+                module.Parent = ServerModules
+
+            elseif StringUtils.reverseSub(moduleName, 1, 7):lower() == ".client" then
+
+                module = module:Clone()
+                module.Name = StringUtils.reverseSub(moduleName, 8)
+                module.Parent = ClientModules
+
+            elseif StringUtils.reverseSub(moduleName, 1, 7):lower() == ".shared" then
+
+                module = module:Clone()
+                module.Name = StringUtils.reverseSub(moduleName, 8)
+                module.Parent = ServerModules
+
             else
                 SortModules(module:GetChildren())
             end
