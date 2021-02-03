@@ -3,7 +3,7 @@
 Objects that require permissions, replication across client-server boundary, change detection, or inheritance are inherited from the BaseObject.
 If an object does not require these it is reccomended to use a simple metatable as a object.
 
-!!! note "Permissions"
+!!! info "Permissions"
     === "Internal Access"
         Internal access refers to direct access to the object's metatable which provides the ability to read and write to all properties.
 
@@ -18,7 +18,7 @@ If an object does not require these it is reccomended to use a simple metatable 
     3. Certain method and event names are reserved and will be overwritten if used
 
     | Type      | Property                      | Description                                                       |
-    | --------- | ----------------------------- | ----------------------------------------------------------------- |
+    |           |                               |                                                                   |
     | `string`  | ClassName                     | Name of class                                                     |
     | `boolean` | Extendable                    | If object can be inherited from                                   |
     | `boolean` | Replicable                    | If object can be replicated from                                  |
@@ -98,7 +98,7 @@ myObject:FireEvent("myEvent", ...)
 
 ### GetPropertyChangedSignal
 
-!!! note
+!!! info
     Cannot hook to properties of `PrivateProperties`
 
 ```lua
@@ -151,6 +151,8 @@ myObject:Hash()
 
 !!! warning "Internal Access Required"
 
+All object properties that are valid attribute values are replicated to the instance. Non-valid properties are skipped.
+
 ```lua
 myObject:Replicate(workspace.Baseplate)
 ```
@@ -159,13 +161,22 @@ myObject:Replicate(workspace.Baseplate)
 
 ### Changed
 
-!!! note
-    Cannot hook to properties of `PrivateProperties`
+!!! info
+    Properties under `PrivateProperties` do not fire event
 
 ```lua
-myObject.Changed:Connect(function(oldProperty, newProperty)
+myObject.Changed:Connect(function(propertyName, newProperty, oldProperty)
 
 end)
 ```
 
 ## Properties
+
+| Permission    | Type          | Name              | Description                                                                                                   |
+|               |               |                   |                                                                                                               |
+| `ReadOnly`    | `String`      | ClassName         | Name of class                                                                                                 |
+| `ReadOnly`    | `Boolean`     | Extendable        | If object can be inherited from                                                                               |
+| `ReadOnly`    | `Boolean`     | Replicable        | If object can be replicated                                                                                   |
+| `ReadOnly`    | `String`      | ObjectId          | UUID of object                                                                                                |
+| `ReadOnly`    | `Number`      | TickCreated       | Time object was created (On objects replicated across server/client boundary the time will be in server time) |
+| `ReadOnly`    | `Instance`    | ReplicationTarget | Instance object is being replicated to                                                                        |

@@ -1,5 +1,7 @@
 site_name: CardinalEngine Documentation
 
+copyright: © 2021 Floating Point Studios
+
 theme:
   name: material
   icon:

@@ -40,16 +40,21 @@ script
 ```
 
 ```lua
-Deus:Register(script.Parent, "myModuleName")
+Deus:Register(script, "myModuleName")
 ```
 
 To load your modules you would use the path with the module name specified earlier.
 
-!!! note
+!!! info
     By default Deus will not be able to load submodule1 in the tree as it will ignore submodules.
 
 ```lua
 local module1 = Deus:Load("myModuleName.module1")
 local module2 = Deus:Load("myModuleName.module2")
 local module3 = Deus:Load("myModuleName.module3")
+
+-- These will not work!
+local submodule1 = Deus:Load("myModuleName.submodule1")
+local submodule1 = Deus:Load("myModuleName.module1.submodule1")
+local submodule1 = Deus:Load("myModuleName.module1").submodule1
 ```
