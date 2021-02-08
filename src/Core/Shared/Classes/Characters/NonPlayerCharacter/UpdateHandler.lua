@@ -1,7 +1,5 @@
-local Deus = shared.Deus()
-
-local Enumeration = Deus:Load("Deus.Enumeration")
-local RaycastUtils = Deus:Load("Deus.RaycastUtils")
+local Enumeration
+local RaycastUtils
 
 local StepSpring = require(script.Parent.StepSpring)
 local NPCState = Enumeration.NPCState
@@ -12,7 +10,7 @@ local DAMPING = 26
 local PRECISION = 0.001
 local POP_TIME = 0.05
 
-return function(self, dt)
+function update(self, dt)
     local PrivateProperties = self.Internal.DEUSOBJECT_Properties
     local ReadOnlyProperties = self.Internal.DEUSOBJECT_LockedTables.ReadOnlyProperties
     local ReadAndWriteProperties = self.Internal.DEUSOBJECT_LockedTables.ReadAndWriteProperties
@@ -178,3 +176,14 @@ return function(self, dt)
         return NPCState.Falling
     end
 end
+
+local UpdateHandler = {}
+
+function UpdateHandler.start()
+    Enumeration = UpdateHandler:Load("Deus.Enumeration")
+    RaycastUtils = UpdateHandler:Load("Deus.RaycastUtils")
+
+    return update
+end
+
+return UpdateHandler

@@ -5,7 +5,7 @@ local ServerStorage = game:GetService("ServerStorage")
 -- Initialize Cardinal
 
 repeat wait() until shared.Deus
-local Deus = shared.Deus()
+local Deus = shared.Deus
 local CardinalCore = script.Parent
 
 local StringUtils = Deus:Load("Deus.StringUtils")

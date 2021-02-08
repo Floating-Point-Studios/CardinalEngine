@@ -1,6 +1,4 @@
-local Deus = shared.Deus()
-
-local Enumeration = Deus:Load("Deus.Enumeration")
+local Enumeration
 
 local NPCState = Enumeration.NPCState
 
@@ -10,7 +8,7 @@ local function makeAnimation(id)
     return anim
 end
 
-return {
+local Animations = {
     Walk = {
         State = NPCState.Walking,
         Variants = {
@@ -70,3 +68,13 @@ return {
         }
     }
 }
+
+local DefaultAnimations = {}
+
+function DefaultAnimations.start()
+    Enumeration = DefaultAnimations:Load("Deus.Enumeration")
+
+    return Animations
+end
+
+return DefaultAnimations

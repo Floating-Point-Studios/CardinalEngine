@@ -13,9 +13,10 @@ If an object does not require these it is reccomended to use a simple metatable 
 ## Usage
 
 !!! example "Creating a new class"
-    1. All arguments are optional
-    2. If a ClassName is not provided a randomly generated ClassName will be assigned
-    3. Certain method and event names are reserved and will be overwritten if used
+    * All arguments are optional
+    * If a ClassName is not provided a randomly generated ClassName will be assigned
+    * Certain method and event names are reserved and will be overwritten if used
+    * If "Changed" is included in the `Events` table then the BaseObject will fire the event when a property change is detected
 
     | Type      | Property                      | Description                                                       |
     |           |                               |                                                                   |
@@ -157,19 +158,6 @@ All object properties that are valid attribute values are replicated to the inst
 myObject:Replicate(workspace.Baseplate)
 ```
 
-## Inherited events
-
-### Changed
-
-!!! info
-    Properties under `PrivateProperties` do not fire event
-
-```lua
-myObject.Changed:Connect(function(propertyName, newProperty, oldProperty)
-
-end)
-```
-
 ## Properties
 
 | Permission    | Type          | Name              | Description                                                                                                   |
@@ -180,3 +168,4 @@ end)
 | `ReadOnly`    | `String`      | ObjectId          | UUID of object                                                                                                |
 | `ReadOnly`    | `Number`      | TickCreated       | Time object was created (On objects replicated across server/client boundary the time will be in server time) |
 | `ReadOnly`    | `Instance`    | ReplicationTarget | Instance object is being replicated to                                                                        |
+| `ReadOnly`    | `userdata`    | Proxy             | Object's proxy limited to external access (Inherited from `TableProxy`)                                       |

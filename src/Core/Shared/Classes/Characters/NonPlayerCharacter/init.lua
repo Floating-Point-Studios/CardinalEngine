@@ -7,7 +7,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 local InsertService = game:GetService("InsertService")
 
-local Deus = shared.Deus()
+local Deus = shared.Deus
 
 local BaseObject = Deus:Load("Deus.BaseObject")
 local InstanceUtils = Deus:Load("Deus.InstanceUtils")

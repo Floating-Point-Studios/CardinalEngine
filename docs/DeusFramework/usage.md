@@ -9,7 +9,7 @@ Deus by default provides 2 ways of getting the module loader.
     This method works when it is known that Deus is done loading and the script does not need to yield.
 
     ```lua
-    local Deus = shared.Deus()
+    local Deus = shared.Deus
     ```
 
 !!! example "Loading from ReplicatedStorage"
@@ -21,11 +21,36 @@ Deus by default provides 2 ways of getting the module loader.
 
 ## Getting modules
 
-To get modules from Deus use the `Load()` method with the module path.
+Deus provides 2 ways of getting modules. The first is to use the loader obtained from the steps above, the second is accessible only from a ModuleScript loaded by Deus.
+Both use the `Load()` method.
 
-```lua
-local BaseObject = Deus:Load("Deus.BaseObject")
-```
+!!! example "Loading modules from Shared or ReplicatedStorage"
+
+    This should only be used in `Scripts` or `LocalScripts`
+
+    ```lua
+    local BaseObject = Deus:Load("Deus.BaseObject")
+    ```
+
+!!! example "Loading modules from ModuleScript"
+
+    This should be the primary method in loading modules
+
+    ```lua
+    local BaseObject
+    local Output
+    local StringUtils
+
+    local Module = {}
+
+    function Module.start()
+        BaseObject = Module:Load("Deus.BaseObject")
+        Output = Module:Load("Deus.Output")
+        StringUtils = Module:Load("Deus.StringUtils")
+    end
+
+    return Module
+    ```
 
 ## Registering modules
 

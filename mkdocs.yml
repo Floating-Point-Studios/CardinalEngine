@@ -1,5 +1,6 @@
 site_name: CardinalEngine Documentation
-
+repo_name: CardinalEngine
+repo_url: https://github.com/Floating-Point-Studios/CardinalEngine
 copyright: © 2021 Floating Point Studios
 
 theme:
@@ -18,6 +19,3 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.tabbed
-
-repo_name: CardinalEngine
-repo_url: https://github.com/Floating-Point-Studios/CardinalEngine
