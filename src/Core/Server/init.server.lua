@@ -2,25 +2,29 @@ local ReplicatedFirst = game:GetService("ReplicatedFirst")
 local ServerScriptService = game:GetService("ServerScriptService")
 local ServerStorage = game:GetService("ServerStorage")
 
--- Initialize Cardinal
+-- Initialize Cardinal Client
 
-repeat wait() until shared.Deus
-local Deus = shared.Deus
 local CardinalCore = script.Parent
-
-local StringUtils = Deus:Load("Deus.StringUtils")
-
 local CardinalClient = CardinalCore.Client
 local CardinalShared = CardinalCore.Shared
 
 CardinalShared:Clone().Parent = CardinalClient
 CardinalClient.Parent = ReplicatedFirst
 
+-- Wait for Deus
+
+repeat wait() until shared.Deus
+local Deus = shared.Deus
+
+local StringUtils = Deus:Load("Deus.StringUtils")
+
+-- Intialize Cardinal Server
+
 Deus:Register(script, "Cardinal")
 Deus:Register(CardinalShared, "Cardinal")
 
 shared.Cardinal = Deus:Load("Cardinal.CardinalLoader").new().Proxy
--- shared.Deus = nil
+shared.Deus = nil
 
 -- Sort Modules
 
@@ -33,9 +37,9 @@ ClientModules.Name = "CardinalModules"
 local function SortModules(modules)
     for _,module in pairs(modules) do
 
-        if module:IsA("Folder") then
+        local moduleName = module.Name
+        if module:IsA("Folder") or module:IsA("ModuleScript") then
 
-            local moduleName = module.Name
             if moduleName:lower() == "server" then
 
                 module = module:Clone()
