@@ -1,0 +1,57 @@
+{
+	"New class": {
+		"prefix": "@class",
+		"body": [
+			"local ${1:${TM_FILENAME/[.].+/$1/}} = {}",
+			"",
+			"$1.ClassName = \"$1\"",
+			"",
+			"$1.Extendable = ${2:true}",
+			"",
+			"$1.Replicable = ${3:true}",
+			"",
+			"$1.Methods = {}",
+			"",
+			"$1.Events = {}",
+			"",
+			"$1.PrivateProperties = {}",
+			"",
+			"$1.PublicReadOnlyProperties = {}",
+			"",
+			"$1.PublicReadAndWriteProperties = {}",
+			"",
+			"function $1.Constructor(self)",
+			"\t",
+			"end",
+			"",
+			"function $1.Deconstructor(self)",
+			"\t",
+			"end",
+			"",
+			"function $1.start()",
+			"\treturn $1:Load(\"Deus.BaseObject\").new($1)",
+			"end",
+			"",
+			"return $1"
+		],
+		"description": "Creates a class"
+	},
+
+	"Assert": {
+		"prefix": "@assert",
+		"body": "Output.assert($1)",
+		"description": "Calls Assert using Output"
+	},
+
+	"Error": {
+		"prefix": "@error",
+		"body": "Output.error(\"$1\")",
+		"description": "Calls Error using Output"
+	},
+
+	"Warn": {
+		"prefix": "@warn",
+		"body": "Output.warn(\"$1\")",
+		"description": "Calls Warn using Output"
+	},
+}
