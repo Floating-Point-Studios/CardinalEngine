@@ -70,19 +70,19 @@
 	},
 
 	"Assert": {
-		"prefix": "@assert",
+		"prefix": "assert",
 		"body": "Output.assert($1)",
 		"description": "Calls Assert using Output"
 	},
 
 	"Error": {
-		"prefix": "@error",
+		"prefix": "error",
 		"body": "Output.error(\"$1\")",
 		"description": "Calls Error using Output"
 	},
 
 	"Warn": {
-		"prefix": "@warn",
+		"prefix": "warn",
 		"body": "Output.warn(\"$1\")",
 		"description": "Calls Warn using Output"
 	},
