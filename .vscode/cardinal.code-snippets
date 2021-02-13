@@ -37,6 +37,38 @@
 		"description": "Creates a class"
 	},
 
+	"New service": {
+		"prefix": "@service",
+		"body": [
+			"local ${1:${TM_FILENAME/[.].+/$1/}} = {}",
+			"",
+			"function $1.start()",
+			"\t",
+			"end",
+			"",
+			"return $1"
+		],
+		"description": "Creates a service"
+	},
+
+	"New module": {
+		"prefix": "@module",
+		"body": [
+			"local ${1:${TM_FILENAME/[.].+/$1/}} = {}",
+			"",
+			"function $1.start()",
+			"\t",
+			"end",
+			"",
+			"function $1.init()",
+			"\t",
+			"end",
+			"",
+			"return $1"
+		],
+		"description": "Creates a module"
+	},
+
 	"Assert": {
 		"prefix": "@assert",
 		"body": "Output.assert($1)",
