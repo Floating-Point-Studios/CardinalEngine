@@ -15,18 +15,18 @@ local CardinalLoaderObjData = {
 
     Methods = {
 
-        Register = function(_, _, module, moduleName)
+        Register = function(_, module, moduleName)
             moduleName = moduleName or module.Name
             Output.assert(not table.find(ReservedNames, moduleName), "Name '%s' is reserved and cannot be used to register a module", moduleName)
             CardinalLoader:Register(module, moduleName)
         end,
 
-        Load = function(_, _, modulePath)
+        Load = function(_, modulePath)
             return CardinalLoader:Load(modulePath)
         end,
 
         --[[
-        IsRegistered = function(_, _, modulePath)
+        IsRegistered = function(_, modulePath)
             return CardinalLoader:IsRegistered(modulePath)
         end
         ]]
