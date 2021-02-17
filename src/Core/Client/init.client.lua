@@ -1,4 +1,4 @@
-local ReplicatedFirst = game:GetService("ReplicatedFirst")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 -- Initialize Cardinal
 
@@ -12,7 +12,7 @@ shared.Deus = nil
 
 -- Initialize Modules
 
-local Modules = ReplicatedFirst:WaitForChild("CardinalModules")
+local Modules = ReplicatedStorage:WaitForChild("CardinalModules")
 
 for _,module in pairs(Modules:GetChildren()) do
     Deus:Register(module)

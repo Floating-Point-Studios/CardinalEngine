@@ -1,4 +1,5 @@
 local ReplicatedFirst = game:GetService("ReplicatedFirst")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ServerScriptService = game:GetService("ServerScriptService")
 local ServerStorage = game:GetService("ServerStorage")
 
@@ -99,7 +100,7 @@ if Modules then
 end
 
 ServerModules.Parent = ServerScriptService
-ClientModules.Parent = ReplicatedFirst
+ClientModules.Parent = ReplicatedStorage
 
 -- Initialize Modules
 
