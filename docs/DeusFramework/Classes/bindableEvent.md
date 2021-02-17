@@ -23,5 +23,5 @@ local bindableEvent = Deus:Load("Deus.BindableEvent").new()
 
 | Permission    | Type          | Name          | Description                       |
 |               |               |               |                                   |
-| `Private`     | `Instance`    | RBXEvent      | BindableEvent used to wrap around |
+| `Private`     | `Instance`    | RBXEvent      | BindableEvent used to wrap        |
 | `ReadOnly`    | `Number`      | LastFiredTick | Time the event was last fired     |

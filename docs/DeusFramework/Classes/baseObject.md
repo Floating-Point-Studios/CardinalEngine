@@ -24,49 +24,131 @@ If an object does not require these it is reccomended to use a simple metatable 
     | `boolean` | Extendable                    | If object can be inherited from                                   |
     | `boolean` | Replicable                    | If object can be replicated from                                  |
     | `function`| Constructor                   | Function ran after object is made and before object is returned   |
+    | `function`| Deconstructor                 | Function ran after before object is destroyed                     |
     | `table`   | Methods                       | List of class methods                                             |
     | `table`   | Events                        | List of class events                                              |
     | `table`   | PrivateProperties             | List of properties only accessible with internal access           |
     | `table`   | PublicReadOnlyProperties      | List of properties only readable with external access             |
     | `table`   | PublicReadAndWriteProperties  | List of properties read and writable with external access         |
 
+    !!! info "Snippets"
+    === "Regular"
+
+        ```lua
+        local myClass = {}
+
+        myClass.ClassName = "myClass"
+
+        myClass.Extendable = true
+
+        myClass.Replicable = true
+
+        myClass.Methods = {}
+
+        myClass.Events = {}
+
+        function myClass:Constructor(part)
+            self.foo = part
+        end
+
+        function myClass:Deconstructor()
+            self.foo:Destroy()
+        end
+
+        function myClass.start()
+            local None = myClass:Load("Deus.Symbol").new("None")
+
+            myClass.PrivateProperties = {
+                foo = None
+            }
+
+            myClass.PublicReadOnlyProperties = {}
+
+            myClass.PublicReadAndWriteProperties = {}
+
+            return myClass:Load("Deus.BaseObject").new(myClass)
+        end
+
+        return myClass
+        ```
+
+    === "Simple"
+
+        ```lua
+        local myClass = {}
+
+        myClass.ClassName = "myClass"
+
+        function myClass:Constructor()
+            
+        end
+
+        function myClass:Deconstructor()
+            
+        end
+
+        function myClass.start()
+            local None = myClass:Load("Deus.Symbol").new("None")
+
+            -- Property assignment should occur here
+            myClass.foo = None
+
+            return myClass:Load("Deus.BaseObject").newSimple(myClass)
+        end
+
+        return myClass
+        ```
+
+## Creating a new object
+
+!!! example ""
+
     ```lua
-    local myClass = BaseObject.new(
-        {
-            ClassName = "myClassName",
+    local myObject = myClass.new(Instance.new("Part"))
+    ```
 
-            Extendable = true,
+## Representing nil
 
-            Replicable = true,
+!!! example ""
+    To represet `nil` in object properties use the [Symbol](../Libraries/symbol.md) `None`
 
-            Constructor = function(self, ...)
-                -- 1st argument is object
-                -- 2nd argument onwards are arguments called with myClass.new()
-                self.foo = {...}[1]
-            end,
+    ```lua
+    function myClass.start()
+        local None = myClass:Load("Deus.Symbol").new("None")
 
-            Methods = {},
-
-            Events = {"myEvent"},
-
-            PrivateProperties = {},
-
-            PublicReadOnlyProperties = {
-                foo = "bar"
-            },
-
-            PublicReadAndWriteProperties = {}
+        myClass.PrivateProperties = {
+            foo = None
         }
-    )
+
+        myClass.PublicReadOnlyProperties = {}
+
+        myClass.PublicReadAndWriteProperties = {}
+
+        return myClass:Load("Deus.BaseObject").new(myClass)
+    end
     ```
 
-!!! example "Creating a new object"
+## Using superclasses
+
+!!! example ""
+    Objects with a superclass inherit the methods of its superclass. Be sure to have all the properties the inherited functions need to run as properties are not automatically inherited.
 
     ```lua
-    local myObject = myClass.new("bar2")
+    local myClass = {}
+
+    myClass.ClassName = "myClass"
+
+    function myClass.start()
+        -- New class inherited from Deus.RemoteEvent
+        myClass.Superclass = myClass:Load("Deus.RemoteEvent")
+
+        return myClass:Load("Deus.BaseObject").newSimple(myClass)
+    end
+
+    return myClass
     ```
 
-## Reading and writing with internal access
+## Reading and writing with Internal access
 
 !!! warning
     This is not guaranteed to work in future versions as this is reading and writing directly to the object's `TableProxy` which is subject to internal change.
@@ -84,7 +166,7 @@ local PrivateProperties = myObject.Internal.DEUSOBJECT_Properties
 local PublicReadOnlyProperties = myObject.Internal.DEUSOBJECT_LockedTables.ReadOnlyProperties
 local PublicReadAndWriteProperties = myObject.Internal.DEUSOBJECT_LockedTables.ReadAndWriteProperties
 
-PublicReadOnlyProperties.foo = "bar3"
+PrivateProperties.foo = "bar3"
 ```
 
 ## Inherited methods
@@ -163,6 +245,7 @@ myObject:Replicate(workspace.Baseplate)
 | Permission    | Type          | Name              | Description                                                                                                   |
 |               |               |                   |                                                                                                               |
 | `ReadOnly`    | `String`      | ClassName         | Name of class                                                                                                 |
+| `ReadOnly`    | `String`      | Superclass        | Class object is extended from                                                                                 |
 | `ReadOnly`    | `Boolean`     | Extendable        | If object can be inherited from                                                                               |
 | `ReadOnly`    | `Boolean`     | Replicable        | If object can be replicated                                                                                   |
 | `ReadOnly`    | `String`      | ObjectId          | UUID of object                                                                                                |

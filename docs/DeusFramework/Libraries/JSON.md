@@ -11,7 +11,6 @@ Library to expand HttpService's JSON capabilities. Provides support for these da
 ## Loading
 
 ```lua
-local Deus = require(game:GetService("ReplicatedStorage"):WaitForChild("Deus"))
 local JSON = Deus:Load("Deus.JSON")
 ```
 

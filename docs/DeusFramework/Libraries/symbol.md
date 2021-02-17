@@ -1,5 +1,7 @@
 # Symbol
 
+All symbols of the same name return the same userdata. Symbol is most often used to represent `nil` in tables.
+
 ## Loading
 
 ```lua
