@@ -1,0 +1,21 @@
+site_name: CardinalEngine Documentation
+repo_name: CardinalEngine
+repo_url: https://github.com/Floating-Point-Studios/CardinalEngine
+copyright: © 2021 Floating Point Studios
+
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github-alt
+  palette:
+    primary: pink
+  features:
+    - navigation.expand
+
+markdown_extensions:
+  - admonition
+  - def_list
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
