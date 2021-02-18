@@ -4,14 +4,14 @@ CardinalEngine and DeusFramework are documented together due to DeusFramework be
 
 ## CardinalEngine
 
-CardinalEngine is built off of the DeusFramework and is designed to streamline the development process.
+CardinalEngine is built off of DeusFramework and is designed to streamline the development process.
 
 ### Features
 * Custom characters that do not utilize Humanoids.
     * Credit to [Luanoid](https://github.com/LPGhatguy/luanoid) for physics calculations.
     * Credit to [Dogutsune](https://devforum.roblox.com/t/dogu15-an-improved-r15-rig-mesh-deformation/532832) for skinned R15 rig used as the standard character model.
-* Raycast suspension system for vehicles.
-* UI Framework similar to [Roact](https://github.com/Roblox/roact).
+* Job service for multithreading
+* Extensions to the table, math, and raycast functions
 
 ## DeusFramework
 
