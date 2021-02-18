@@ -1,4 +1,3 @@
 [submodule "src/DeusFramework"]
 	path = src/DeusFramework
 	url = https://github.com/Floating-Point-Studios/deus-framework
-	branch = master
