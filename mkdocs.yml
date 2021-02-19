@@ -5,6 +5,7 @@ copyright: © 2021 Floating Point Studios
 
 theme:
   name: material
+  logo: images/Cardinal.svg
   icon:
     repo: fontawesome/brands/github-alt
   palette:
