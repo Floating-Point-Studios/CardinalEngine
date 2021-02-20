@@ -52,7 +52,7 @@
 			"\t",
 			"end",
 			"",
-			"function $1.start()",
+			"function $1:start()",
 			"\treturn self:Load(\"Deus.BaseObject\").newSimple(self)",
 			"end",
 			"",
