@@ -22,14 +22,14 @@
 			"\t",
 			"end",
 			"",
-			"function $1.start()",
-			"\t$1.PrivateProperties = {}",
+			"function $1:start()",
+			"\tself.PrivateProperties = {}",
 			"",
-			"\t$1.PublicReadOnlyProperties = {}",
+			"\tself.PublicReadOnlyProperties = {}",
 			"",
-			"\t$1.PublicReadAndWriteProperties = {}",
+			"\tself.PublicReadAndWriteProperties = {}",
 			"",
-			"\treturn $1:Load(\"Deus.BaseObject\").new($1)",
+			"\treturn self:Load(\"Deus.BaseObject\").new(self)",
 			"end",
 			"",
 			"return $1"
@@ -53,7 +53,7 @@
 			"end",
 			"",
 			"function $1.start()",
-			"\treturn $1:Load(\"Deus.BaseObject\").newSimple($1)",
+			"\treturn self:Load(\"Deus.BaseObject\").newSimple(self)",
 			"end",
 			"",
 			"return $1"
@@ -66,7 +66,7 @@
 		"body": [
 			"local ${1:${TM_FILENAME/[.].+/$1/}} = {}",
 			"",
-			"function $1.start()",
+			"function $1:start()",
 			"\t",
 			"end",
 			"",
@@ -80,12 +80,31 @@
 		"body": [
 			"local ${1:${TM_FILENAME/[.].+/$1/}} = {}",
 			"",
-			"function $1.start()",
+			"function $1:start()",
 			"\t",
 			"end",
 			"",
-			"function $1.init()",
+			"function $1:init()",
 			"\t",
+			"end",
+			"",
+			"return $1"
+		],
+		"description": "Creates a module"
+	},
+
+	"New enum": {
+		"prefix": "@enum",
+		"body": [
+			"local ${1:${TM_FILENAME/[.].+/$1/}} = {}",
+			"",
+			"function $1:start()",
+			"\treturn self:Load(\"Deus.Enumeration\").addEnum(",
+			"\t\"\",",
+			"\t\t{",
+			"\t\t",
+			"\t\t}",
+			"\t)",
 			"end",
 			"",
 			"return $1"
