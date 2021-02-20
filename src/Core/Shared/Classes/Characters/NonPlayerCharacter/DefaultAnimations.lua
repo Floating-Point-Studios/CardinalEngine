@@ -71,8 +71,8 @@ local Animations = {
 
 local DefaultAnimations = {}
 
-function DefaultAnimations.start()
-    Enumeration = DefaultAnimations:Load("Deus.Enumeration")
+function DefaultAnimations:start()
+    Enumeration = self:Load("Deus.Enumeration")
 
     return Animations
 end

@@ -179,9 +179,9 @@ end
 
 local UpdateHandler = {}
 
-function UpdateHandler.start()
-    Enumeration = UpdateHandler:Load("Deus.Enumeration")
-    RaycastUtils = UpdateHandler:Load("Deus.RaycastUtils")
+function UpdateHandler:start()
+    Enumeration = self:Load("Deus.Enumeration")
+    RaycastUtils = self:Load("Deus.RaycastUtils")
 
     return update
 end

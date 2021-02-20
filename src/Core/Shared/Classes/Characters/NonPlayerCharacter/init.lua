@@ -1,3 +1,5 @@
+-- TODO: Refactor to new class convention
+
 --[[
     Ported from
     https://github.com/LPGhatguy/luanoid

@@ -78,8 +78,8 @@ function UVSphere.toMesh(sphere)
     return sphereMesh
 end
 
-function UVSphere.start()
-    Mesh = UVSphere:Load("Deus.Mesh")
+function UVSphere:start()
+    Mesh = self:Load("Deus.Mesh")
 end
 
 return UVSphere

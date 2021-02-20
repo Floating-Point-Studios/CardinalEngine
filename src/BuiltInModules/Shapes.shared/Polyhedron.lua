@@ -151,10 +151,10 @@ function Polyhedron.toMesh(polyhedron)
     return polyhedronMesh
 end
 
-function Polyhedron.start()
-    Mesh = Polyhedron:Load("Deus.Mesh")
+function Polyhedron:start()
+    Mesh = self:Load("Deus.Mesh")
 
-    Tetrahedrons = Polyhedron:Load("Deus.Enumeration").addEnum(
+    Tetrahedrons = self:Load("Deus.Enumeration").addEnum(
         "Tetrahedron",
         {
             Regular = 1,

@@ -1,7 +1,7 @@
 local NPCState = {}
 
-function NPCState.start()
-    return NPCState:Load("Deus.Enumeration").addEnum(
+function NPCState:start()
+    return self:Load("Deus.Enumeration").addEnum(
         "NPCState",
         {
             Idle = 0,

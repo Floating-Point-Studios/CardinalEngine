@@ -1,3 +1,5 @@
+-- TODO: Refactor to new class convention
+
 local Output
 local BaseObject
 
@@ -34,9 +36,9 @@ local CardinalLoaderObjData = {
     }
 }
 
-function CardinalLoader.start()
-    Output = CardinalLoader:Load("Deus.Output")
-    BaseObject = CardinalLoader:Load("Deus.BaseObject")
+function CardinalLoader:start()
+    Output = self:Load("Deus.Output")
+    BaseObject = self:Load("Deus.BaseObject")
 
     return BaseObject.new(CardinalLoaderObjData)
 end

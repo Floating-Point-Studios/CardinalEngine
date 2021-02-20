@@ -34,9 +34,9 @@ function SpherePoint.llToVector3(points, radius)
     return spherePoints
 end
 
-function SpherePoint.start()
-    MathUtils = SpherePoint:Load("Deus.MathUtils")
-    VectorUtils = SpherePoint:Load("Deus.VectorUtils")
+function SpherePoint:start()
+    MathUtils = self:Load("Deus.MathUtils")
+    VectorUtils = self:Load("Deus.VectorUtils")
 end
 
 return SpherePoint
