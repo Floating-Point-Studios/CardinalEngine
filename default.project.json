@@ -27,8 +27,8 @@
     "ServerStorage": {
       "$className": "ServerStorage",
 
-      "CardinalModules": {
-        "$path": "src/BuiltInModules"
+      "CardinalPackages": {
+        "$path": "src/Packages"
       }
     }
 

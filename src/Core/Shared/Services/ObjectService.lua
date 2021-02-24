@@ -24,6 +24,11 @@ end
 function ObjectService:start()
     Output = self:Load("Deus.Output")
     InstanceUtils = self:Load("Deus.InstanceUtils")
+
+    -- Hook into BaseObject and begin tracking
+    self:Load("Deus.BaseObject").NewObject:Connect(function(objProxy)
+        self:TrackObject(objProxy)
+    end)
 end
 
 return ObjectService

@@ -30,10 +30,10 @@ shared.Deus = nil
 -- Sort Modules
 
 local ServerModules = Instance.new("Folder")
-ServerModules.Name = "CardinalModules"
+ServerModules.Name = "CardinalPackages"
 
 local ClientModules = Instance.new("Folder")
-ClientModules.Name = "CardinalModules"
+ClientModules.Name = "CardinalPackages"
 
 local function SortModules(modules)
     for _,module in pairs(modules) do
@@ -94,7 +94,7 @@ local function SortModules(modules)
     end
 end
 
-local Modules = ServerStorage:FindFirstChild("CardinalModules")
+local Modules = ServerStorage:FindFirstChild("CardinalPackages")
 if Modules then
     SortModules(Modules:GetChildren())
 end

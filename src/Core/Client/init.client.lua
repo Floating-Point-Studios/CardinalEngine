@@ -12,7 +12,7 @@ shared.Deus = nil
 
 -- Initialize Modules
 
-local Modules = ReplicatedStorage:WaitForChild("CardinalModules")
+local Modules = ReplicatedStorage:WaitForChild("CardinalPackages")
 
 for _,module in pairs(Modules:GetChildren()) do
     Deus:Register(module)
