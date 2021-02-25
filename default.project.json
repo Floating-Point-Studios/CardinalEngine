@@ -22,14 +22,6 @@
         }
 
       }
-    },
-
-    "ServerStorage": {
-      "$className": "ServerStorage",
-
-      "CardinalPackages": {
-        "$path": "src/Packages"
-      }
     }
 
   }
