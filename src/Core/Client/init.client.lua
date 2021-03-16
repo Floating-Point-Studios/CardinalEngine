@@ -1,3 +1,4 @@
+local ReplicatedFirst = game:GetService("ReplicatedFirst")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 -- Initialize Cardinal
@@ -10,10 +11,14 @@ Deus:Register(script, "Cardinal")
 shared.Cardinal = Deus:Load("Cardinal.CardinalLoader").new().Proxy
 shared.Deus = nil
 
--- Initialize Modules
+-- Initialize Packages
 
-local Modules = ReplicatedStorage:WaitForChild("CardinalPackages")
+local Packages = ReplicatedStorage:WaitForChild("CardinalPackages")
 
-for _,module in pairs(Modules:GetChildren()) do
-    Deus:Register(module)
+for _,package in pairs(Packages:GetChildren()) do
+    if package:IsA("LocalScript") then
+        package.Parent = ReplicatedFirst
+    else
+        Deus:Register(package)
+    end
 end
