@@ -1,0 +1,15 @@
+{
+    "name": "CardinalEngine Testing",
+    "tree": {
+      "$className": "DataModel",
+  
+      "ServerScriptService": {
+        "$className": "ServerScriptService",
+  
+        "CardinalEngine": {
+          "$path": "src"
+        }
+      }
+  
+    }
+  }

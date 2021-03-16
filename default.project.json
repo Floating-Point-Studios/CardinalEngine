@@ -1,28 +1,6 @@
 {
   "name": "CardinalEngine",
   "tree": {
-    "$className": "DataModel",
-
-    "ServerScriptService": {
-      "$className": "ServerScriptService",
-
-      "CardinalEngine": {
-        "$className": "Folder",
-
-        "Core": {
-          "$path": "src/Core"
-        },
-
-        "DeusFramework": {
-          "$path": "src/DeusFramework/src"
-        },
-
-        "DeusSettings": {
-          "$path": "src/DeusSettings.lua"
-        }
-
-      }
-    }
-
+    "$path": "src"
   }
 }
