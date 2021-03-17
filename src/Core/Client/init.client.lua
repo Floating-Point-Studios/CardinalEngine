@@ -18,7 +18,7 @@ local Packages = ReplicatedStorage:WaitForChild("CardinalPackages")
 for _,package in pairs(Packages:GetChildren()) do
     if package:IsA("LocalScript") then
         package.Parent = ReplicatedFirst
-    else
+    elseif package:IsA("ModuleScript") then
         Deus:Register(package)
     end
 end

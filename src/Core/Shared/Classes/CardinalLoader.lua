@@ -15,10 +15,6 @@ local CardinalLoader = {
     Events = {}
 }
 
-function CardinalLoader:Constructor()
-    Deus = getmetatable(self)
-end
-
 function CardinalLoader.Methods:Register(module, moduleName)
     moduleName = moduleName or module.Name
     Output.assert(not table.find(ReservedNames, moduleName), "Name '%s' is reserved and cannot be used to register module", moduleName)
@@ -38,6 +34,13 @@ function CardinalLoader.Methods:IsRegistered(...)
 end
 
 function CardinalLoader:start()
+    Deus = {
+		Register = self.Register,
+		Load = self.Load,
+		WrapModule = self.WrapModule,
+		IsRegistered = self.IsRegistered
+	}
+
     Output = self:Load("Deus.Output")
 
     self.PrivateProperties = {}

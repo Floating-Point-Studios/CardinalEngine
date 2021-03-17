@@ -38,8 +38,8 @@ ClientPackages.Name = "CardinalPackages"
 local function SortModules(modules)
     for _,module in pairs(modules) do
 
-        local moduleName = module.Name
-        if module:IsA("Folder") or module:IsA("ModuleScript") then
+		local moduleName = module.Name
+		if module:IsA("Folder") or module:IsA("ModuleScript") then
 
             if moduleName:lower() == "server" then
 
@@ -78,13 +78,15 @@ local function SortModules(modules)
                 module.Name = StringUtils.reverseSub(moduleName, 8)
                 module.Parent = ServerPackages
 
-            else
-                SortModules(module:GetChildren())
+			else
+				if module:IsA("ModuleScript") then
+					module:Clone().Parent = ServerPackages
+					module:Clone().Parent = ClientPackages
+				else
+					SortModules(module:GetChildren())
+				end
             end
 
-        elseif module:IsA("ModuleScript") then
-            module:Clone().Parent = ServerPackages
-            module:Clone().Parent = ClientPackages
         elseif module:IsA("LocalScript") then
             module:Clone().Parent = ClientPackages
         elseif module:IsA("Script") then
@@ -105,7 +107,7 @@ ClientPackages.Parent = ReplicatedStorage
 -- Initialize Modules
 
 for _,package in pairs(ServerPackages:GetChildren()) do
-    if package:IsA("Folder") then
+    if package:IsA("Folder") or package:IsA("ModuleScript") then
         Deus:Register(package)
     end
 end
