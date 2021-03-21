@@ -9,6 +9,7 @@ function ObjectService:GetObject(objectId)
     return Objects[objectId]
 end
 
+--[[
 function ObjectService:GetObjectFromInstance(instance)
     instance = InstanceUtils.findFirstAncestorWithTag(instance, "DeusObject")
 
@@ -16,18 +17,22 @@ function ObjectService:GetObjectFromInstance(instance)
 
     return Objects[instance:GetAttribute("DEUS_ObjectId")]
 end
+]]
 
+--[[
 function ObjectService:TrackObject(obj)
     Objects[obj.ObjectId] = obj
 end
+]]
 
 function ObjectService:start()
     Output = self:Load("Deus.Output")
     InstanceUtils = self:Load("Deus.InstanceUtils")
 
     -- Hook into BaseObject and begin tracking
-    self:Load("Deus.BaseObject").NewObject:Connect(function(objProxy)
-        self:TrackObject(objProxy)
+    self:Load("Deus.BaseObject").NewObject:Connect(function(obj)
+        --self:TrackObject(objProxy)
+        Objects[obj.ObjectId] = obj
     end)
 end
 

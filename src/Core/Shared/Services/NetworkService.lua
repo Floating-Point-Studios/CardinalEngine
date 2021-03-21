@@ -22,7 +22,7 @@ local function getRemoteEvent(name)
 
         elseif RunService:IsClient() then
 
-            remote = Remotes.Events:FindFirstChild(name)
+            remote = Remotes.Events:WaitForChild(name)
 
             Output.assert(remote, "Could not find RemoteEvent ".. name, nil, 1)
 
@@ -48,7 +48,7 @@ local function getRemoteFunction(name)
 
         elseif RunService:IsClient() then
 
-            remote = Remotes.Functions:FindFirstChild(name)
+            remote = Remotes.Functions:WaitForChild(name)
 
             Output.assert(remote, "Could not find RemoteFunction ".. name, nil, 1)
 
@@ -63,19 +63,19 @@ end
 
 local NetworkService = {}
 
-function NetworkService.connect(name, func)
+function NetworkService:Connect(name, func)
     getRemoteEvent(name):Connect(func)
 end
 
-function NetworkService.fire(name, ...)
+function NetworkService:Fire(name, ...)
     getRemoteEvent(name):Fire(...)
 end
 
-function NetworkService.onInvoke(name, func)
+function NetworkService:OnInvoke(name, func)
     getRemoteFunction(name):OnInvoke(func)
 end
 
-function NetworkService.invoke(name, ...)
+function NetworkService:Invoke(name, ...)
     getRemoteFunction(name):Invoke(...)
 end
 

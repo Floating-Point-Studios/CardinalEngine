@@ -2,7 +2,7 @@ local Workers
 
 local ParallelService = {}
 
-function ParallelService.run(module, funcName, ...)
+function ParallelService:Run(module, funcName, ...)
     local worker = Workers:Get()
 
     local result = worker:RunJob(module, funcName, ...)
