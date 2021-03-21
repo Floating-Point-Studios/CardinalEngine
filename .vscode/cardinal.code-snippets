@@ -108,20 +108,46 @@
 		"description": "Creates a module"
 	},
 
+	"New DataType": {
+		"prefix": "@datatype",
+		"body": [
+			"local ${1:${TM_FILENAME/[.].+/$1/}} = {",
+			"\tName = \"$1\",",
+			"\tMethods = {},",
+			"\tMetamethods = {},",
+			"}",
+			"",
+			"function $1:Constructor()",
+			"\t",
+			"end",
+			"",
+			"function $1:start()",
+			"\tself.PublicValues = {}",
+			"",
+			"\tself.ReadOnlyValues = {}",
+			"",
+			"\treturn self:Load(\"Deus.DataType\").new(self)",
+			"end",
+			"",
+			"return $1"
+		],
+		"description": "Creates a DataType"
+	},
+
 	"Assert": {
-		"prefix": "assert",
+		"prefix": ["assert", "Output.assert()"],
 		"body": "Output.assert($1)",
 		"description": "Calls Assert using Output"
 	},
 
 	"Error": {
-		"prefix": "error",
+		"prefix":["error", "Output.error()"],
 		"body": "Output.error(\"$1\")",
 		"description": "Calls Error using Output"
 	},
 
 	"Warn": {
-		"prefix": "warn",
+		"prefix": ["warn", "Output.warn()"],
 		"body": "Output.warn(\"$1\")",
 		"description": "Calls Warn using Output"
 	},
