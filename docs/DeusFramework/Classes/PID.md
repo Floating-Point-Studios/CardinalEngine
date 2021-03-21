@@ -1,9 +1,6 @@
 # PID
 
-!!! info "No Inheritance"
-    This object is a simple metatable and is not inherited from [BaseObject](../Classes/baseObject.md).
-
-Instructions to tune can be found [here](http://robotsforroboticists.com/pid-control/).
+Instructions to tune can be found [here](http://robotsforroboticists.com/pid-control/){target=blank}.
 
 ## Creating
 

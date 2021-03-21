@@ -1,12 +1,5 @@
 # StringUtils
 
-## Loading
-
-```lua
-local Deus = require(game:GetService("ReplicatedStorage"):WaitForChild("Deus"))
-local StringUtils = Deus:Load("Deus.StringUtils")
-```
-
 ## countMatches
 
 Returns count of pattern matches.

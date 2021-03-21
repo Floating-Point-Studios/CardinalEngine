@@ -148,27 +148,6 @@ If an object does not require these it is reccomended to use a simple metatable 
     return myClass
     ```
 
-## Reading and writing with Internal access
-
-!!! warning
-    This is not guaranteed to work in future versions as this is reading and writing directly to the object's `TableProxy` which is subject to internal change.
-
-To optimize reading and writing properties with internal access the object's `TableProxy` can be accessed directly to avoid invoking any metatable methods.
-Due to this not invoking any metatable methods the `Changed` event will not fire with changes made via this method.
-
-```lua
-local ClassName = myObject.Internal.DEUSOBJECT_LockedTables.ReadOnlyProperties.ClassName
-local Extendable = myObject.Internal.DEUSOBJECT_LockedTables.ReadOnlyProperties.Extendable
-local Replicable = myObject.Internal.DEUSOBJECT_LockedTables.ReadOnlyProperties.Replicable
-local Methods = myObject.Internal.DEUSOBJECT_LockedTables.Methods
-local Events = myObject.Internal.DEUSOBJECT_LockedTables.Events
-local PrivateProperties = myObject.Internal.DEUSOBJECT_Properties
-local PublicReadOnlyProperties = myObject.Internal.DEUSOBJECT_LockedTables.ReadOnlyProperties
-local PublicReadAndWriteProperties = myObject.Internal.DEUSOBJECT_LockedTables.ReadAndWriteProperties
-
-PrivateProperties.foo = "bar3"
-```
-
 ## Inherited methods
 
 ### FireEvent
@@ -228,16 +207,6 @@ myObject:Serialize()
 
 ```lua
 myObject:Hash()
-```
-
-### Replicate
-
-!!! warning "Internal Access Required"
-
-All object properties that are valid attribute values are replicated to the instance. Non-valid properties are skipped.
-
-```lua
-myObject:Replicate(workspace.Baseplate)
 ```
 
 ## Properties

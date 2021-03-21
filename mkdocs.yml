@@ -12,9 +12,11 @@ theme:
     primary: pink
   features:
     - navigation.expand
+    - navigation.tabs
 
 markdown_extensions:
   - admonition
+  - attr_list
   - def_list
   - pymdownx.details
   - pymdownx.highlight

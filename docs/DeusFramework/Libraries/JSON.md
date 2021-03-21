@@ -8,12 +8,6 @@ Library to expand HttpService's JSON capabilities. Provides support for these da
 * `Color3`
 * `BrickColor`
 
-## Loading
-
-```lua
-local JSON = Deus:Load("Deus.JSON")
-```
-
 ## serialize
 
 !!! example

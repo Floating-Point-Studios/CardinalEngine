@@ -6,24 +6,18 @@
 local MouseUtils = Deus:Load("Deus.MouseUtils").new()
 ```
 
-## Methods
+## getTargetAtPosition
 
-### getTargetAtPosition
+Returns `Instance` at screen `x` and `y` coordinates or `nil` if raycast fails. Uses `Enum.FilterType` and a `table` for filterDescendantsInstances to control raycast.
 
-!!! example ""
+```lua
+local target = MouseUtils.getTargetAtPosition(x, y, filterType, filterDescendantsInstances)
+```
 
-    Returns `Instance` at screen `x` and `y` coordinates or `nil` if raycast fails. Uses `Enum.FilterType` and a `table` for filterDescendantsInstances to control raycast.
+## getGuiObjectsAtPositionWithWhitelist
 
-    ```lua
-    local target = MouseUtils.getTargetAtPosition(x, y, filterType, filterDescendantsInstances)
-    ```
+Returns `GuiObjects` in `filter` if `GuiObjects` are at screen `x` and `y` coordinates. If `recursive` is enabled will count descendants of `filter` as part of whitelist.
 
-### getGuiObjectsAtPositionWithWhitelist
-
-!!! example ""
-
-    Returns `GuiObjects` in `filter` if `GuiObjects` are at screen `x` and `y` coordinates. If `recursive` is enabled will count descendants of `filter` as part of whitelist.
-
-    ```lua
-    local guiObjects = MouseUtils.getGuiObjectsAtPositionWithWhitelist(x, y, filter, recursive)
-    ```
+```lua
+local guiObjects = MouseUtils.getGuiObjectsAtPositionWithWhitelist(x, y, filter, recursive)
+```
