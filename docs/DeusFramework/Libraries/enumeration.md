@@ -2,13 +2,13 @@
 
 Behaves like `Enum` and can be indexed for `EnumItems`
 
- ## addEnumItem
+## addEnumItem
 
- ```lua
+```lua
 Enumeration.addEnumItem("EnumName", "EnumItemName", number)
 ```
 
- ## addEnum
+## addEnum
 
 ```lua
 Enumeration.addEnum("EnumName", {
@@ -16,10 +16,10 @@ Enumeration.addEnum("EnumName", {
 })
 ```
 
- ## waitForEnum
+## waitForEnum
 
 Yields for 3 seconds before erroring
 
- ```lua
+```lua
 local enum = Enumeration.waitForEnum("EnumName")
- ```
+```
