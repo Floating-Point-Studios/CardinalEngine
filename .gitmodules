@@ -1,3 +1,6 @@
 [submodule "src/DeusFramework"]
 	path = src/DeusFramework
 	url = https://github.com/Floating-Point-Studios/deus-framework
+[submodule "src/Core/Client/Libraries/Roact"]
+	path = src/Core/Client/Libraries/Roact
+	url = https://github.com/Roblox/Roact

@@ -10,26 +10,24 @@ local ReservedNames = {
 local CardinalLoader = {
     ClassName = "CardinalLoader",
     Extendable = false,
-    Replicable = false,
-    Methods = {},
     Events = {}
 }
 
-function CardinalLoader.Methods:Register(module, moduleName)
+function CardinalLoader:Register(module, moduleName)
     moduleName = moduleName or module.Name
     Output.assert(not table.find(ReservedNames, moduleName), "Name '%s' is reserved and cannot be used to register module", moduleName)
     Deus:Register(module, moduleName)
 end
 
-function CardinalLoader.Methods:Load(...)
+function CardinalLoader:Load(...)
     return Deus:Load(...)
 end
 
-function CardinalLoader.Methods:WrapModule(...)
+function CardinalLoader:WrapModule(...)
     return Deus:WrapModule(...)
 end
 
-function CardinalLoader.Methods:IsRegistered(...)
+function CardinalLoader:IsRegistered(...)
     return Deus:IsRegistered(...)
 end
 

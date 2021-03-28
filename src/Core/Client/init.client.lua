@@ -1,5 +1,6 @@
 local ReplicatedFirst = game:GetService("ReplicatedFirst")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
 
 -- Initialize Cardinal
 
@@ -22,3 +23,18 @@ for _,package in pairs(Packages:GetChildren()) do
         Deus:Register(package)
     end
 end
+
+-- Enable Roact Debugging
+if RunService:IsStudio() then
+    Deus:Load("Cardinal.Roact").setGlobalConfig(
+        {
+            typeChecks = true,
+            internalTypeChecks = true,
+            elementTracing = true,
+            propValidation = true
+        }
+    )
+end
+
+-- Initalize ALICE
+local ALICE = Deus:Load("Cardinal.ALICE").new()
