@@ -4,3 +4,6 @@
 [submodule "src/Core/Client/Libraries/Roact"]
 	path = src/Core/Client/Libraries/Roact
 	url = https://github.com/Roblox/Roact
+[submodule "src/Core/Shared/Classes/Cardinoid"]
+	path = src/Core/Shared/Classes/Cardinoid
+	url = https://github.com/Floating-Point-Studios/Cardinoid
