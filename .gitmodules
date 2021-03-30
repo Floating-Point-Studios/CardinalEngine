@@ -7,3 +7,9 @@
 [submodule "src/Core/Shared/Classes/Cardinoid"]
 	path = src/Core/Shared/Classes/Cardinoid
 	url = https://github.com/Floating-Point-Studios/Cardinoid
+[submodule "src/Core/Shared/Libraries/Promise"]
+	path = src/Core/Shared/Libraries/Promise
+	url = https://github.com/evaera/roblox-lua-promise
+[submodule "src/Core/Shared/Libraries/testez"]
+	path = src/Core/Shared/Libraries/testez
+	url = https://github.com/Roblox/testez
