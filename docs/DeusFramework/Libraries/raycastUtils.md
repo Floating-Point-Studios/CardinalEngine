@@ -1,17 +1,26 @@
 # RaycastUtils
 
-## Loading
+## from
+
+Creates a `RaycastParam` from a dictionary
 
 ```lua
-local RaycastUtils = Deus:Load("Deus.RaycastUtils")
+local raycastParam = RaycastUtils.from(
+    {
+        FilterDescendantsInstances = {},
+        FilterType = Enum.RaycastFilterType.Blacklist,
+        IgnoreWater = false,
+        CollisionGroup = "Default"
+    }
+)
 ```
 
-## copyRaycastParams
+## copy
 
 Returns a clone of a provided `RaycastParam`
 
 ```lua
-local raycastParam = RaycastUtils.copyRaycastParams(raycastParams)
+local raycastParam = RaycastUtils.copy(raycastParams)
 ```
 
 ## cast

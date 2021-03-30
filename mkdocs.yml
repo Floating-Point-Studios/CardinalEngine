@@ -9,7 +9,23 @@ theme:
   icon:
     repo: fontawesome/brands/github-alt
   palette:
-    primary: pink
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: pink
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
   features:
     - navigation.expand
     - navigation.tabs
@@ -19,6 +35,9 @@ markdown_extensions:
   - attr_list
   - def_list
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.tabbed

@@ -1,6 +1,6 @@
 # ObjectService
 
-Tracks all live objects created through [BaseObject](../../DeusFramework/Classes/baseObject.md)
+Tracks all live objects created through [BaseObject](/DeusFramework/Classes/baseObject)
 
 ## GetObject
 

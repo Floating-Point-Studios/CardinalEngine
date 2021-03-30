@@ -22,10 +22,8 @@ If an object does not require these it is reccomended to use a simple metatable 
     |           |                               |                                                                   |
     | `string`  | ClassName                     | Name of class                                                     |
     | `boolean` | Extendable                    | If object can be inherited from                                   |
-    | `boolean` | Replicable                    | If object can be replicated from                                  |
     | `function`| Constructor                   | Function ran after object is made and before object is returned   |
     | `function`| Deconstructor                 | Function ran after before object is destroyed                     |
-    | `table`   | Methods                       | List of class methods                                             |
     | `table`   | Events                        | List of class events                                              |
     | `table`   | PrivateProperties             | List of properties only accessible with internal access           |
     | `table`   | PublicReadOnlyProperties      | List of properties only readable with external access             |
@@ -35,17 +33,10 @@ If an object does not require these it is reccomended to use a simple metatable 
     === "Regular"
 
         ```lua
-        local myClass = {}
-
-        myClass.ClassName = "myClass"
-
-        myClass.Extendable = true
-
-        myClass.Replicable = true
-
-        myClass.Methods = {}
-
-        myClass.Events = {}
+        local myClass = {
+            ClassName = "myClass",
+            Events = {}
+        }
 
         function myClass:Constructor(part)
             self.foo = part
@@ -56,7 +47,7 @@ If an object does not require these it is reccomended to use a simple metatable 
         end
 
         function myClass.start()
-            local None = myClass:Load("Deus.Symbol").new("None")
+            local None = myClass:Load("Deus.Symbol").get("None")
 
             myClass.PrivateProperties = {
                 foo = None
@@ -75,9 +66,9 @@ If an object does not require these it is reccomended to use a simple metatable 
     === "Simple"
 
         ```lua
-        local myClass = {}
-
-        myClass.ClassName = "myClass"
+        local myClass = {
+            ClassName = "myClass"
+        }
 
         function myClass:Constructor()
             
@@ -88,7 +79,7 @@ If an object does not require these it is reccomended to use a simple metatable 
         end
 
         function myClass.start()
-            local None = myClass:Load("Deus.Symbol").new("None")
+            local None = myClass:Load("Deus.Symbol").get("None")
 
             -- Property assignment should occur here
             myClass.foo = None
@@ -114,7 +105,7 @@ If an object does not require these it is reccomended to use a simple metatable 
 
     ```lua
     function myClass.start()
-        local None = myClass:Load("Deus.Symbol").new("None")
+        local None = myClass:Load("Deus.Symbol").get("None")
 
         myClass.PrivateProperties = {
             foo = None
@@ -153,10 +144,9 @@ If an object does not require these it is reccomended to use a simple metatable 
 ### FireEvent
 
 !!! warning "Internal Access Required"
-
-```lua
-myObject:FireEvent("myEvent", ...)
-```
+    ```lua
+    myObject:FireEvent("myEvent", ...)
+    ```
 
 ### GetPropertyChangedSignal
 
@@ -216,8 +206,6 @@ myObject:Hash()
 | `ReadOnly`    | `String`      | ClassName         | Name of class                                                                                                 |
 | `ReadOnly`    | `String`      | Superclass        | Class object is extended from                                                                                 |
 | `ReadOnly`    | `Boolean`     | Extendable        | If object can be inherited from                                                                               |
-| `ReadOnly`    | `Boolean`     | Replicable        | If object can be replicated                                                                                   |
 | `ReadOnly`    | `String`      | ObjectId          | UUID of object                                                                                                |
 | `ReadOnly`    | `Number`      | TickCreated       | Time object was created (On objects replicated across server/client boundary the time will be in server time) |
-| `ReadOnly`    | `Instance`    | ReplicationTarget | Instance object is being replicated to                                                                        |
 | `ReadOnly`    | `userdata`    | Proxy             | Object's proxy limited to external access (Inherited from `TableProxy`)                                       |

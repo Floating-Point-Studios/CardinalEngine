@@ -17,7 +17,7 @@ Returns count of pattern matches.
         2
         ```
 
-## getMatches
+## matches
 
 Returns matches in a table with where the match starts and ends.
 
@@ -25,7 +25,7 @@ Returns matches in a table with where the match starts and ends.
     === "Script"
 
         ```lua
-        print(StringUtils.getMatches("the quick brown fox jumps over the lazy dog", "the"))
+        print(StringUtils.matches("the quick brown fox jumps over the lazy dog", "the"))
         ```
 
     === "Output"
@@ -45,7 +45,7 @@ Returns matches in a table with where the match starts and ends.
         }
         ```
 
-## replaceAt
+## replace
 
 Splices a new string into an existing string.
 
@@ -53,7 +53,7 @@ Splices a new string into an existing string.
     === "Script"
 
         ```lua
-        print(StringUtils.replaceAt("the quick brown fox jumps over the lazy dog", "red cat", 11, 19))
+        print(StringUtils.replace("the quick brown fox jumps over the lazy dog", "red cat", 11, 19))
         ```
 
     === "Output"
@@ -62,7 +62,7 @@ Splices a new string into an existing string.
         the quick red cat jumps over the lazy dog
         ```
 
-## collapseOccurances
+## collapse
 
 Replaces sequential pattern occurances with a single occurance. This is useful to remove double spaces in chat messages.
 
@@ -70,7 +70,7 @@ Replaces sequential pattern occurances with a single occurance. This is useful t
     === "Script"
 
         ```lua
-        print(StringUtils.collapseOccurances("   i    am    spamming  chat", " "))
+        print(StringUtils.collapse("   i    am    spamming  chat", " "))
         ```
 
     === "Output"

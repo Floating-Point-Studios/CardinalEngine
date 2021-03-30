@@ -1,6 +1,5 @@
 # RemoteFunction
-
-!!! info "Inherited from [BaseObject](../../Classes/baseObject.md)"
+*Inherited from [BaseObject](/DeusFramework/Classes/baseObject)*
 
 ## new
 
@@ -19,15 +18,14 @@ local remoteFunction = RemoteFunction.new(workspace.RemoteFunctionName)
 ## OnInvoke
 
 !!! warning "Internal Access Required"
+    When used on the Server this behaves like `OnServerInvoke()` and when used on the Client it behaves like `OnClientInvoke()`
 
-When used on the Server this behaves like `OnServerInvoke()` and when used on the Client it behaves like `OnClientInvoke()`
-
-```lua
-remoteFunction:OnInvoke(function(...)
-    -- On the server this would return the player
-    return {...}[1]
-end
-```
+    ```lua
+    remoteFunction:OnInvoke(function(...)
+        -- On the server this would return the player
+        return {...}[1]
+    end
+    ```
 
 ## Invoke
 
