@@ -122,11 +122,11 @@ function CardinalLoader:start()
         }
     )
 
-    self.PrivateProperties = {}
+    self.Private = {}
 
-    self.PublicReadOnlyProperties = {}
+    self.Readable = {}
 
-    self.PublicReadAndWriteProperties = {}
+    self.Writable = {}
 
     return self:Load("Deus.BaseObject").new(self)
 end
