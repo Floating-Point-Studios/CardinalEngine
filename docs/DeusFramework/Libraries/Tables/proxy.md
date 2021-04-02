@@ -19,7 +19,7 @@ local userdata = Proxy.new(
 ## Metamethods
 
 !!! warning
-    The metamethods `__eq`, `__lt`, and `__le` do not work
+    The metamethods `__eq`, `__lt`, and `__le` do not work on userdatas. It should be noted `__len` can only be used on the userdata and not the metatable.
 
 These metamethods can be set in the 2nd argument of `Proxy.new()`
 

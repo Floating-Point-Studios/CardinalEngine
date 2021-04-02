@@ -705,8 +705,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#constructing" class="md-nav__link">
-    Constructing
+  <a href="#constructors" class="md-nav__link">
+    Constructors
   </a>
   
 </li>
@@ -1128,8 +1128,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#constructing" class="md-nav__link">
-    Constructing
+  <a href="#constructors" class="md-nav__link">
+    Constructors
   </a>
   
 </li>
@@ -1215,11 +1215,9 @@
                 
                 <h1 id="keyboardinput">KeyboardInput</h1>
 <p><em>Inherited from <a href="/DeusFramework/Classes/baseObject">BaseObject</a></em></p>
-<div class="admonition warning">
-<p class="admonition-title">Client-only</p>
-</div>
+<p>{client-only}</p>
 <p>KeyboardInputs serve as a wrapper for a single <a href="https://developer.roblox.com/en-us/api-reference/enum/KeyCode">KeyCode</a> they are easy to re-map as a result you should have a separate <code>KeyboardInput</code> for each action such as jumping, walking forwards, backwards, etc.</p>
-<h2 id="constructing">Constructing</h2>
+<h2 id="constructors">Constructors</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Example of a KeyboardInput for walking forward</span>
 <span class="kd">local</span> <span class="n">walkForward</span> <span class="o">=</span> <span class="n">KeyboardInput</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">Enum</span><span class="p">.</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">W</span><span class="p">)</span>
 
@@ -1227,19 +1225,15 @@
 <span class="kd">local</span> <span class="n">sprintForward</span> <span class="o">=</span> <span class="n">KeyboardInput</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">Enum</span><span class="p">.</span><span class="n">KeyCode</span><span class="p">.</span><span class="n">W</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="enable">Enable</h2>
-<div class="admonition warning">
-<p class="admonition-title">Internal Access Required</p>
+<p>{internal}</p>
 <p>Re-connects internal connections to handle events.</p>
 <div class="highlight"><pre><span></span><code><span class="n">keyboardInput</span><span class="p">:</span><span class="n">Enable</span><span class="p">()</span>
 </code></pre></div>
-</div>
 <h2 id="disable">Disable</h2>
-<div class="admonition warning">
-<p class="admonition-title">Internal Access Required</p>
+<p>{internal}</p>
 <p>Disconnects internal connections to handle events.</p>
 <div class="highlight"><pre><span></span><code><span class="n">keyboardInput</span><span class="p">:</span><span class="n">Disable</span><span class="p">()</span>
 </code></pre></div>
-</div>
 <h2 id="events">Events</h2>
 <p>All event callbacks have an <a href="https://developer.roblox.com/en-us/api-reference/class/InputObject" target="blank">InputObject</a> as their first and only argument.</p>
 <h3 id="began">Began</h3>
@@ -1373,6 +1367,8 @@
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="../../../../javascripts/tags.js"></script>
       
     
   </body>

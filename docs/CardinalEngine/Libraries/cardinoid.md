@@ -6,7 +6,7 @@
 
 Modern implementation of [Luanoid](https://github.com/LPGhatguy/luanoid){target=blank} in the CardinalEngine. Throughout this documentation `Agent` refers to the Cardinoid object while `Character` refers to `Agent.Character`. Many situations may require a custom `StateController` to write one it is recommended to view the default [StateController](https://github.com/Floating-Point-Studios/Cardinoid/blob/main/src/StateController/init.lua){target=blank}.
 
-## Constructing
+## Constructors
 
 Cardinoid's constructor expects either a dictionary or `Character` created by Cardinoid.
 

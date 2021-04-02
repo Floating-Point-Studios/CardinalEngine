@@ -30,6 +30,9 @@ theme:
     - navigation.expand
     - navigation.tabs
 
+extra_javascript:
+  - javascripts/tags.js
+
 markdown_extensions:
   - admonition
   - attr_list

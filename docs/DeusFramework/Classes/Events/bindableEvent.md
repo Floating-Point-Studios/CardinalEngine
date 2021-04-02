@@ -31,8 +31,8 @@ local args = {BindableEvent:Wait()}
 ```
 
 ## Fire
+{internal}
 
-!!! warning "Internal Access Required"
-    ```lua
-    BindableEvent:Fire(...)
-    ```
+```lua
+BindableEvent:Fire(...)
+```

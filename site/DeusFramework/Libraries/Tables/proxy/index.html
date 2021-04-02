@@ -1119,7 +1119,7 @@
 <h2 id="metamethods">Metamethods</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The metamethods <code>__eq</code>, <code>__lt</code>, and <code>__le</code> do not work</p>
+<p>The metamethods <code>__eq</code>, <code>__lt</code>, and <code>__le</code> do not work on userdatas. It should be noted <code>__len</code> can only be used on the userdata and not the metatable.</p>
 </div>
 <p>These metamethods can be set in the 2nd argument of <code>Proxy.new()</code></p>
 <table>
@@ -1256,6 +1256,8 @@
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="../../../../javascripts/tags.js"></script>
       
     
   </body>

@@ -16,16 +16,16 @@ local remoteFunction = RemoteFunction.new(workspace.RemoteFunctionName)
 ```
 
 ## OnInvoke
+{internal}
 
-!!! warning "Internal Access Required"
-    When used on the Server this behaves like `OnServerInvoke()` and when used on the Client it behaves like `OnClientInvoke()`
+When used on the Server this behaves like `OnServerInvoke()` and when used on the Client it behaves like `OnClientInvoke()`
 
-    ```lua
-    remoteFunction:OnInvoke(function(...)
-        -- On the server this would return the player
-        return {...}[1]
-    end
-    ```
+```lua
+remoteFunction:OnInvoke(function(...)
+    -- On the server this would return the player
+    return {...}[1]
+end
+```
 
 ## Invoke
 

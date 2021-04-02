@@ -1,27 +1,27 @@
 # MouseInput
 *Inherited from [BaseObject](/DeusFramework/Classes/baseObject)*
 
-!!! Warning "Client-only"
+{client-only}
 
 This is the replacement for Roblox's deprecated [Mouse](https://developer.roblox.com/en-us/api-reference/class/Mouse){target=blank} class.
 
 ## Enable
+{internal}
 
-!!! warning "Internal Access Required"
-    Re-connects internal connections to handle events.
+Re-connects internal connections to handle events.
 
-    ```lua
-    mouseInput:Enable()
-    ```
+```lua
+mouseInput:Enable()
+```
 
 ## Disable
+{internal}
 
-!!! warning "Internal Access Required"
-    Disconnects internal connections to handle events.
+Disconnects internal connections to handle events.
 
-    ```lua
-    mouseInput:Disable()
-    ```
+```lua
+mouseInput:Disable()
+```
 
 ## Events
 

@@ -142,11 +142,11 @@ If an object does not require these it is reccomended to use a simple metatable 
 ## Inherited methods
 
 ### FireEvent
+{internal}
 
-!!! warning "Internal Access Required"
-    ```lua
-    myObject:FireEvent("myEvent", ...)
-    ```
+```lua
+myObject:FireEvent("myEvent", ...)
+```
 
 ### GetPropertyChangedSignal
 

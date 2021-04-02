@@ -1,11 +1,11 @@
 # KeyboardInput
 *Inherited from [BaseObject](/DeusFramework/Classes/baseObject)*
 
-!!! Warning "Client-only"
+{client-only}
 
 KeyboardInputs serve as a wrapper for a single [KeyCode](https://developer.roblox.com/en-us/api-reference/enum/KeyCode) they are easy to re-map as a result you should have a separate `KeyboardInput` for each action such as jumping, walking forwards, backwards, etc.
 
-## Constructing
+## Constructors
 
 ```lua
 -- Example of a KeyboardInput for walking forward
@@ -16,22 +16,22 @@ local sprintForward = KeyboardInput.new(Enum.KeyCode.W, true)
 ```
 
 ## Enable
+{internal}
 
-!!! warning "Internal Access Required"
-    Re-connects internal connections to handle events.
+Re-connects internal connections to handle events.
 
-    ```lua
-    keyboardInput:Enable()
-    ```
+```lua
+keyboardInput:Enable()
+```
 
 ## Disable
+{internal}
 
-!!! warning "Internal Access Required"
-    Disconnects internal connections to handle events.
+Disconnects internal connections to handle events.
 
-    ```lua
-    keyboardInput:Disable()
-    ```
+```lua
+keyboardInput:Disable()
+```
 
 ## Events
 

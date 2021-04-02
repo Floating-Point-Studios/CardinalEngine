@@ -1127,15 +1127,13 @@
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">remoteFunction</span> <span class="o">=</span> <span class="n">RemoteFunction</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">workspace</span><span class="p">.</span><span class="n">RemoteFunctionName</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="oninvoke">OnInvoke</h2>
-<div class="admonition warning">
-<p class="admonition-title">Internal Access Required</p>
+<p>{internal}</p>
 <p>When used on the Server this behaves like <code>OnServerInvoke()</code> and when used on the Client it behaves like <code>OnClientInvoke()</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">remoteFunction</span><span class="p">:</span><span class="n">OnInvoke</span><span class="p">(</span><span class="kr">function</span><span class="p">(...)</span>
     <span class="c1">-- On the server this would return the player</span>
     <span class="kr">return</span> <span class="p">{...}[</span><span class="mi">1</span><span class="p">]</span>
 <span class="kr">end</span>
 </code></pre></div>
-</div>
 <h2 id="invoke">Invoke</h2>
 <p>When used on the Server this behaves like <code>InvokeClient()</code> and when used on the Client it behaves like <code>InvokeServer()</code></p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Server</span>
@@ -1226,6 +1224,8 @@
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="../../../../javascripts/tags.js"></script>
       
     
   </body>

@@ -29,34 +29,34 @@ connection:Disconnect()
 ```
 
 ## Fire
+{internal}
 
-!!! warning "Internal Access Required"
-    When used on the Server this behaves like `FireClient()` and when used on the Client it behaves like `FireServer()`
+When used on the Server this behaves like `FireClient()` and when used on the Client it behaves like `FireServer()`
 
-    ```lua
-    -- Server
-    remoteEvent:Fire(player, ...)
-    ```
+```lua
+-- Server
+remoteEvent:Fire(player, ...)
+```
 
-    ```lua
-    -- Client
-    remoteEvent:Fire(...)
-    ```
+```lua
+-- Client
+remoteEvent:Fire(...)
+```
 
 ## FireAllClients
+{server-only} {internal}
 
-!!! warning "Internal Access Required"
-    This method can only be used on the Server and behaves like `FireAllClients()`
+Behaves like the normal `FireAllClients()`
 
-    ```lua
-    remoteEvent:FireAllClients(...)
-    ```
+```lua
+remoteEvent:FireAllClients(...)
+```
 
 ### FireWhitelistedClients
+{server-only} {internal}
 
-!!! warning "Internal Access Required"
-    This method can only be used on the Server and fires the event for all players in a list
+Fires the event for all players in a list
 
-    ```lua
-    remoteEvent:FireWhitelistedClients({player1, player2, player3}, ...)
-    ```
+```lua
+remoteEvent:FireWhitelistedClients({player1, player2, player3}, ...)
+```
