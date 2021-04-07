@@ -37,7 +37,7 @@ function StateController:Update(dt)
     local lookDir = agent.LookDir
 
     -- MoveTo Logic
-    local moveToPosition = agent.MoveToPosition
+    local moveToPosition = agent.MoveToTarget
     if moveToPosition then
         if tick() - agent.MoveToTick < agent.MoveToTimeout then
             if typeof(moveToPosition) == "Instance" then
@@ -69,27 +69,32 @@ function StateController:Update(dt)
     local curState = agent.State
     local newState = curState
 
-    if curState == CharacterState.Jumping then
-        if currentVelocityY < 0 then
-            -- We passed the peak of the jump and are now falling downward
-            newState = CharacterState.Falling
-        end
-    elseif curState ~= CharacterState.Sitting and curState ~= CharacterState.Climbing then
-        if raycastResult and (hrpPos - raycastResult.Position).Magnitude < groundDistanceGoal then
-            -- We are grounded
-            if agent.JumpInput then
-                agent.JumpInput = false
-                newState = CharacterState.Jumping
-            else
-                if moveDir.Magnitude > 0 then
-                    newState = CharacterState.Walking
-                else
-                    newState = CharacterState.Idling
-                end
+    if humanoidRootPart:GetRootPart() == humanoidRootPart then
+        if curState == CharacterState.Jumping then
+            if currentVelocityY < 0 then
+                -- We passed the peak of the jump and are now falling downward
+                newState = CharacterState.Unsimulated
             end
-        else
-            newState = CharacterState.Falling
+        elseif curState ~= CharacterState.Climbing then
+            if raycastResult and (hrpPos - raycastResult.Position).Magnitude < groundDistanceGoal then
+                -- We are grounded
+                if agent.JumpInput then
+                    agent.JumpInput = false
+                    newState = CharacterState.Jumping
+                else
+                    if moveDir.Magnitude > 0 then
+                        newState = CharacterState.Walking
+                    else
+                        newState = CharacterState.Idling
+                    end
+                end
+            else
+                newState = CharacterState.Unsimulated
+            end
         end
+    else
+        -- HRP isn't RootPart so Character is likely welded to something
+        newState = CharacterState.Unsimulated
     end
 
     -- State handling logic
@@ -187,7 +192,7 @@ function StateController:Update(dt)
         mover.Force = Vector3.new(aX, aUp, aZ) * humanoidRootPart.AssemblyMass
 
         -- Look direction stuff
-        if moveDir.Magnitude > 0 and agent.LookInMoveDir then
+        if moveDir.Magnitude > 0 and agent.AutoRotate then
             lookDir = moveDir
         end
 
@@ -206,17 +211,9 @@ function StateController:Update(dt)
             aligner.Attachment1.CFrame = CFrame.lookAt(Vector3.new(), lookDir)
         end
 
-    elseif (newState == CharacterState.Sitting or newState == CharacterState.Falling) then
+    elseif newState == CharacterState.Unsimulated then
 
         mover.Force = Vector3.new()
-
-    elseif newState == CharacterState.Swimming then
-
-        -- TODO: Add Swimming
-
-    elseif newState == CharacterState.Climbing then
-
-        -- TODO: Add climbing
 
     end
 

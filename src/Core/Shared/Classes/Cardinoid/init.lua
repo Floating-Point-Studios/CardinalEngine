@@ -116,7 +116,7 @@ function Cardinoid:Constructor(...)
     self.WalkSpeed          = characterData.WalkSpeed       or self.WalkSpeed
     self.JumpPower          = characterData.JumpPower       or self.JumpPower
     self.HipHeight          = characterData.HipHeight       or self.HipHeight
-    self.LookInMoveDir      = characterData.LookInMoveDir   or self.LookInMoveDir
+    self.AutoRotate         = characterData.AutoRotate   or self.AutoRotate
     self.CanJump            = characterData.CanJump         or self.CanJump
     self.CanClimb           = characterData.CanClimb        or self.CanClimb
 
@@ -277,20 +277,16 @@ function Cardinoid:Jump()
     return self
 end
 
-function Cardinoid:Sit(seat, offset)
-    return self
-end
-
 function Cardinoid:MoveTo(target, timeout)
     timeout = timeout or MOVETO_TIMEOUT
 
-    self.MoveToPosition = target
+    self.MoveToTarget = target
     self.MoveToTimeout = timeout
     self.MoveToTick = tick()
 end
 
 function Cardinoid:CancelMoveTo()
-    self.MoveToPosition = nil
+    self.MoveToTarget = nil
     self.MoveToTimeout = MOVETO_TIMEOUT
     self.MoveToTick = 0
 end
@@ -344,7 +340,7 @@ function Cardinoid:start()
 
         JumpInput = false,
 
-        MoveToPosition = None,
+        MoveToTarget = None,
         MoveToTimeout = 0,
         MoveToTick = 0,
 
@@ -370,7 +366,7 @@ function Cardinoid:start()
         JumpPower = 50,
         HipHeight = 2,
 
-        LookInMoveDir = true,
+        AutoRotate = true,
         CanJump = true,
         CanClimb = true,
 

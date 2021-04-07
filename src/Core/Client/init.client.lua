@@ -37,4 +37,4 @@ if RunService:IsStudio() then
 end
 
 -- Initalize ALICE
-local ALICE = Deus:Load("Cardinal.ALICE").new()
+-- local ALICE = Deus:Load("Cardinal.ALICE").new()
